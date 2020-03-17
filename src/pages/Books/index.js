@@ -28,7 +28,6 @@ export default function Books(props) {
       setBookData(data.books)
       setTotalItems(data.totalBooks)
       setTotalPages(Math.floor(data.totalBooks / itemsPerPage))
-      console.log(data.books.length)
     } catch (e) {
       console.error(e)
     }

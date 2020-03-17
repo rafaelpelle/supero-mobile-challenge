@@ -4,7 +4,7 @@ import { white, black, darkGrey, disabledGrey, orange } from '../../utils/colors
 export const styles = StyleSheet.create({
   container: {
     margin: 10,
-    padding: 10,
+    padding: 15,
     borderRadius: 5,
     backgroundColor: white,
     elevation: 5,
@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
   },
   title: {
     color: darkGrey,
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
   },
   isbn: {
