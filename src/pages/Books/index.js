@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, FlatList, TextInput, Button } from 'react-native'
+import { View } from 'react-native'
 
 import Filters from '../../components/Filters'
-import Loader from '../../components/Loader'
-import BookListItem from '../../components/BookListItem'
+import BookList from '../../components/BookList'
 import { styles } from './styles'
 import { getBooks } from '../../services/bookService'
 
@@ -42,8 +41,6 @@ export default function Books(props) {
     setIsLoading(false)
   }
 
-  const handleBookPress = () => {}
-
   const onSubmit = async (values) => {
     clearState()
     const { searchTerm, initialDate, endDate } = values
@@ -53,23 +50,7 @@ export default function Books(props) {
   return (
     <View style={styles.container}>
       <Filters onSubmit={onSubmit} />
-
-      <Text style={styles.totalItems}>
-        {isLoading ? 'Carregando livros...' : `${totalItems} livros encontrados`}
-      </Text>
-      <FlatList
-        style={styles.list}
-        data={bookData}
-        keyExtractor={(book) => book.id}
-        renderItem={({ item }) => (
-          <BookListItem bookData={item} handleBookPress={handleBookPress} />
-        )}
-        ListFooterComponent={isLoading && <Loader />}
-        // onEndReached={handleEndReached}
-        // onEndReachedThreshold={0.1}
-        // onRefresh={handleRefresh}
-        // refreshing={isRefreshing}
-      />
+      <BookList isLoading={isLoading} totalItems={totalItems} bookData={bookData} />
     </View>
   )
 }

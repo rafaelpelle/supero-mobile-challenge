@@ -4,10 +4,11 @@ export const styles = StyleSheet.create({
   container: {
     width: '100%',
     padding: 10,
+    paddingBottom: 30,
   },
   dateContainer: {
     width: '100%',
-    marginBottom: 20,
+    paddingBottom: 20,
   },
   title: {
     fontSize: 20,
