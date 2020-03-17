@@ -24,26 +24,18 @@ export default function Filters({ onSubmit }) {
   const [collapseAnimation] = useState(new Animated.Value(0))
   const [fadeAnimation] = useState(new Animated.Value(0))
 
-  const handleOpenFilter = () => {
-    Animated.timing(collapseAnimation, {
-      toValue: 1000,
-      duration: 400,
-    }).start()
-    Animated.timing(fadeAnimation, {
-      toValue: 1,
-      duration: 400,
-    }).start()
+  const handleAnimation = (toValue, duration = 400, animated) => {
+    Animated.timing(animated, { toValue, duration }).start()
   }
 
-  const handleCloseFilter = () => {
-    Animated.timing(collapseAnimation, {
-      toValue: 0,
-      duration: 400,
-    }).start()
-    Animated.timing(fadeAnimation, {
-      toValue: 0,
-      duration: 400,
-    }).start()
+  const toggleFilter = () => {
+    if (collapseAnimation.__getValue()) {
+      handleAnimation(0, 400, collapseAnimation)
+      handleAnimation(0, 400, fadeAnimation)
+    } else {
+      handleAnimation(1000, 400, collapseAnimation)
+      handleAnimation(1, 400, fadeAnimation)
+    }
   }
 
   return (
@@ -92,11 +84,11 @@ export default function Filters({ onSubmit }) {
               title='Aplicar Filtros'
               onPress={() => {
                 handleSubmit()
-                handleCloseFilter()
+                toggleFilter()
               }}
             />
           </Animated.View>
-          <TouchableWithoutFeedback onPress={handleOpenFilter}>
+          <TouchableWithoutFeedback onPress={toggleFilter}>
             <Icon style={styles.filterIcon} name='filter' size={30} color={darkGrey} />
           </TouchableWithoutFeedback>
         </>
