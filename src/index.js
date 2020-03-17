@@ -1,10 +1,14 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { StatusBar } from 'react-native'
+
+import MainNavigation from './router/MainNavigation'
+import { lightGrey } from './utils/colors'
 
 export default function App() {
   return (
-    <View>
-      <Text>Initial Commit</Text>
-    </View>
+    <>
+      <StatusBar barStyle='dark-content' backgroundColor={lightGrey} />
+      <MainNavigation />
+    </>
   )
 }
