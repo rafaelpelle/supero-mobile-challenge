@@ -2,7 +2,7 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
-import { lightGrey } from '../utils/colors'
+import { white } from '../utils/colors'
 import { routes } from './routes'
 import HeaderImage from '../components/HeaderImage'
 
@@ -12,7 +12,7 @@ const screenOptions = {
   headerTitle: (props) => <HeaderImage {...props} />,
   headerTitleAlign: 'center',
   headerStyle: {
-    backgroundColor: lightGrey,
+    backgroundColor: white,
   },
 }
 
