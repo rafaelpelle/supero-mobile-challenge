@@ -16,4 +16,9 @@ export const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: -10,
   },
+  filterIcon: {
+    position: 'absolute',
+    top: 10,
+    right: 20,
+  },
 })

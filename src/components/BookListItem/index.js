@@ -19,7 +19,7 @@ export default function BookListItem({ bookData, handleBookPress }) {
   } = bookData
 
   return (
-    <TouchableWithoutFeedback onLongPress={() => handleBookPress(bookData)}>
+    <TouchableWithoutFeedback onPress={() => handleBookPress(bookData)}>
       <View style={styles.container}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.isbn}>{'ISBN: ' + isbn}</Text>
