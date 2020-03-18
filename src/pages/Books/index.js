@@ -37,7 +37,7 @@ export default function Books(props) {
     setIsLoading(true)
     try {
       const { data } = await getBooks(page, searchTerm, initialDate, endDate)
-      setBookData([...bookData, ...data.books])
+      setBookData(page === 0 ? data.books : [...bookData, ...data.books])
       setTotalItems(data.totalBooks)
       setTotalPages(Math.floor(data.totalBooks / itemsPerPage))
     } catch (e) {
