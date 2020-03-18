@@ -3,6 +3,7 @@ import { View } from 'react-native'
 
 import Filters from '../../components/Filters'
 import BookList from '../../components/BookList'
+import BookModal from '../../components/BookModal'
 import { styles } from './styles'
 import { getBooks } from '../../services/bookService'
 
@@ -51,6 +52,7 @@ export default function Books(props) {
     <View style={styles.container}>
       <Filters onSubmit={onSubmit} />
       <BookList isLoading={isLoading} totalItems={totalItems} bookData={bookData} />
+      <BookModal />
     </View>
   )
 }
