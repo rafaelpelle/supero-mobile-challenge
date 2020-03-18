@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { View, Text, Modal, TouchableWithoutFeedback } from 'react-native'
+import { View, Modal, TouchableWithoutFeedback } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 import ModalInfo from './ModalInfo'

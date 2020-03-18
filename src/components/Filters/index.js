@@ -20,7 +20,7 @@ const validationSchema = Yup.object().shape({
     .max(2020, `A data inicial deve ser menor que ${currentYear + 1}`),
 })
 
-export default function Filters({ onSubmit }) {
+export default function Filters({ onSubmit, isLoading, totalItems }) {
   const [collapseAnimation] = useState(new Animated.Value(0))
   const [fadeAnimation] = useState(new Animated.Value(0))
 
@@ -41,10 +41,10 @@ export default function Filters({ onSubmit }) {
   return (
     <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
       {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
-        <>
+        <View style={styles.container}>
           <Animated.View
             style={{
-              ...styles.container,
+              ...styles.animatedContainer,
               maxHeight: collapseAnimation,
               opacity: fadeAnimation,
             }}
@@ -91,7 +91,10 @@ export default function Filters({ onSubmit }) {
           <TouchableWithoutFeedback onPress={toggleFilter}>
             <Icon style={styles.filterIcon} name='filter' size={30} color={darkGrey} />
           </TouchableWithoutFeedback>
-        </>
+          <Text style={styles.totalItems}>
+            {isLoading ? 'Carregando livros...' : `${totalItems} livros encontrados`}
+          </Text>
+        </View>
       )}
     </Formik>
   )
